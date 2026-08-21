@@ -3,4 +3,6 @@ name = "c11"
 version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "numpy>=2.5.2",
+]
