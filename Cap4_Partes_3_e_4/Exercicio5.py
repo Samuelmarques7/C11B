@@ -11,3 +11,4 @@ empresas, quantidades = np.unique(dataset[1:, 1], return_counts=True)
 
 for i in range(len(empresas)):
     print(empresas[i], quantidades[i])
+
