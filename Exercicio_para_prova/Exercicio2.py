@@ -11,7 +11,7 @@ dataset = np.char.strip(dataset) # retira os espaços
 
 #print(dataset[0:,0:4])
 
-Region= np.unique(dataset[1:, 1])
+Region= np.unique(dataset[1:, 1]) #np.unique (devolve os elementos que são unicos)
 
 print(Region, len(Region))
 

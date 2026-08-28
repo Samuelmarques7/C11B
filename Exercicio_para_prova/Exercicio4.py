@@ -13,4 +13,6 @@ cond = np.char.find(colum_region,'NORTHERN AMERICA') != -1
 
 paises_NA = colum_region[cond]
 
-print(f"Há {len(paises_NA)} países americanos")
+print(paises_NA)
+
+print(f"Há {len(paises_NA)} países americanos")  #len: conta quantos objtos tem
