@@ -4,16 +4,20 @@
 
 import numpy as np
 
-dataset = np.loadtxt('space.csv',delimiter = ';', dtype=str,encoding='utf-8')
+dataset = np.loadtxt('space.csv',delimiter=';',dtype=str,encoding='utf-8')
 
-missoes = 0
+dataset = np.char.strip(dataset)
 
-#print(dataset[0])
+status_rocket = dataset[1:,7]
 
-for dados in dataset:
-    if dados[7] == 'Success':
-         missoes += 1
+cond = status_rocket == 'Success'
 
-porcentagem = (missoes/(len(dataset)-1)) *100
+quant_success = np.sum(cond)
 
-print(porcentagem)
+total_mission = len(status_rocket)
+
+porcentagem = quant_success/total_mission * 100
+
+print(f"A porcentagem de missões que deram certo é: {porcentagem:.2f}%")
+
+#A porcentagem de missoes que deram certo é o numero de missoes que deram certo dividio pelo total de missoes

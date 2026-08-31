@@ -2,19 +2,14 @@
 
 import numpy as np
 
+dataset = np.loadtxt('space.csv',delimiter=';',dtype=str,encoding='utf-8')
 
-dataset = np.loadtxt('space.csv', delimiter=';', dtype=str, encoding='utf-8')
+dataset = np.char.strip(dataset)
 
-print(dataset[0])
+company = dataset[1:,1]
 
-empresa, cost = dataset[1:, 1], dataset[1:, 6]
+cost = dataset[1:,6].astype(float)
 
-maior = 0
+idx = np.argmax(cost)
 
-for i in range(len(empresa)):
-    if float(cost[i]) > maior:
-        maior = float(cost[i])
-        big = empresa[i]
-
-print(big, maior)
-
+print(f"A missão mais cara de todo o Dataset foi da empresa {company[idx]}, com valor de {cost[idx]:.2f}")

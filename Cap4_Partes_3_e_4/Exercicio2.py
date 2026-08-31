@@ -6,17 +6,16 @@
 
 import numpy as np
 
-dataset = np.loadtxt('space.csv',delimiter = ';', dtype=str,encoding='utf-8')
+dataset = np.loadtxt('space.csv',delimiter=';',dtype=str,encoding='utf-8')
 
-#print(dataset[0])
+dataset = np.char.strip(dataset)
 
-media = 0
+cost = dataset[1:,6].astype(float)
 
-for dados in dataset[1:]:
+cond = cost > 0
 
-    if float(dados[6]) > 0:
-        media = media + float(dados[6])
+media = cost[cond].mean()
 
-media = media/(len(dataset)-1)
+print(f"A média de gastos de uma missão é: {media:.2f}")
 
-print (media)
+# A media é dada pela soma das missoes dividido pela quantidade total de missoes

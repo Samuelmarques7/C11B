@@ -4,17 +4,12 @@
 
 import numpy as np
 
+dataset = np.loadtxt('space.csv',delimiter=';',dtype=str,encoding='utf-8')
 
-dataset = np.loadtxt('space.csv', delimiter=';', dtype=str, encoding='utf-8')
+dataset = np.char.strip(dataset)
 
-Status_Rocekt, quantidades = np.unique(dataset[1:, 5], return_counts=True)
+status_rocket = dataset[1:,5]
 
+cond = status_rocket == 'StatusRetired'
 
-for i in range(len(Status_Rocekt)):
-    print(Status_Rocekt[i], quantidades[i])
-    if Status_Rocekt[i] == 'StatusRetired':
-        retired = quantidades[i]
-
-porcentagem = (retired/(sum(quantidades)))*100
-
-print(porcentagem)
+print(f"A porcentagem de missoes realizadas com o status Retired é: {cond.mean()*100:.2f}%")

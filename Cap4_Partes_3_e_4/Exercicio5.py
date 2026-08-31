@@ -2,13 +2,16 @@
 # juntamente com suas respectivas quantidades de missões (use
 # o for no final para mostrar as informações)
 
+
 import numpy as np
 
+dataset = np.loadtxt('space.csv',delimiter=';',dtype=str,encoding='utf-8')
 
-dataset = np.loadtxt('space.csv', delimiter=';', dtype=str, encoding='utf-8')
+dataset = np.char.strip(dataset)
 
-empresas, quantidades = np.unique(dataset[1:, 1], return_counts=True)
+company = dataset[1:,1]
 
-for i in range(len(empresas)):
-    print(empresas[i], quantidades[i])
+empresas,quantidade = np.unique(company,return_counts=True)
 
+for empresas,quantidade in zip(empresas,quantidade):
+    print(f"{empresas} : {quantidade} missões")

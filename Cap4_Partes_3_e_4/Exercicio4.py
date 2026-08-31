@@ -1,22 +1,22 @@
 # 4. Encontre qual foi
 # a missão mais cara realizada pela empresas
-# “SpaceX
-# ”
+# “SpaceX"
+
 import numpy as np
 
+dataset = np.loadtxt('space.csv',delimiter=';',dtype=str,encoding='utf-8')
 
-dataset = np.loadtxt('space.csv', delimiter=';', dtype=str, encoding='utf-8')
+dataset = np.char.strip(dataset)
 
-print(dataset[0])
+company = dataset[1:,1]
 
-cond = dataset[1:, 1] == 'SpaceX'
+cond = company == 'SpaceX'
 
-missoes_spacex = dataset[1:][cond]
+cost = dataset[1:,6].astype(float)
 
-maior = 0
+detail = dataset[1:,4][cond]
 
-for dados in missoes_spacex:
-    if float(dados[6]) > maior:
-        maior = float(dados[6])
+idx = np.argmax(cost[cond])
 
-print(maior)
+print(f"A missao mais cara realizada pela empresa Spacex tem o valor de: {cost[cond][idx]} e os detalhes da missao é:{detail[idx]}")
+
