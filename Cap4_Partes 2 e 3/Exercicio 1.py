@@ -7,7 +7,6 @@
 # Array para se tornar uma matriz com mais linhas do que colunas
 # . Senão, remodele para que se torne uma matriz com mais colunas do que linhas.
 
-
 import numpy as np
 
 arr = np.ones(8)
@@ -16,13 +15,12 @@ arr2 = np.random.randint(0,10,8)
 
 arr3 = arr + arr2
 
-soma = arr3.sum()
-
-print(soma)
+soma = np.sum(arr3)
 
 if soma >= 40:
-    mtz = arr3.reshape(4, 2)
-    print(mtz)
+    mtz = arr3.reshape(4,2)
 else:
-    mtz = arr3.reshape(2, 4)
-    print(mtz)
+    mtz = arr3.reshape(2,4)
+
+print(f"Soma = {soma}")
+print(mtz)

@@ -6,9 +6,8 @@ import numpy as np
 
 arr = np.arange(0,51,2)
 
-arr2 = np.arange(100, 49,-2)
+arr2 = np.arange(100,49,-2)
 
 arr3 = np.concatenate((arr,arr2))
 
 print(np.sort(arr3))
-
