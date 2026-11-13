@@ -49,7 +49,6 @@ print(decomp_air.seasonal[:12].round(3))
 
 # --------------------------------------------------------------------------
 # SÉRIE 2 - co2_emissions.csv
-# Emissões de CO2 anuais (1990-2020)
 # --------------------------------------------------------------------------
 co2 = pd.read_csv('co2_emissions.csv', index_col='Year')
 co2.index = pd.to_datetime(co2.index.astype(str), format='%Y')  # índice temporal anual
@@ -74,7 +73,7 @@ plt.show()
 print('--- co2_emissions ---')
 print(co2['CO2_Emissions'].round(1).to_string())
 
-# RESPOSTAS - SÉRIE 2 (co2_emissions)
+# RESPOSTAS - SÉRIE 2
 # a. A série possui tendência? Se sim, que tipo?
 #    Sim. Tendência DECRESCENTE no período completo: sai de ~101 em 1990 e
 #    chega a ~39 em 2020. Ela não é linear: há fases de alta (1990-1992,
